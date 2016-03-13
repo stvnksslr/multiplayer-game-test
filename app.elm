@@ -94,16 +94,16 @@ view : (Int,Int) -> Model -> Element
 
 view (w,h) {x,y,vx,vy,dir} =
   let
-    verb = if vx == 0 && vy == 0 then "stand" else "walk"
-    src = "assets/imgs/char1/" ++ verb ++ "/" ++ dir ++ ".gif"
+    --verb = if vx == 0 && vy == 0 then "stand" else "walk"
+    --src = "/imgs/hero/" ++ verb ++ "/" ++ dir ++ ".gif"
+    verb = if vx == 0 && vy == 0 then "stand" else "movment"
+    src = "assets/imgs/ship2/movement" ++ "/" ++ dir ++ ".png"
   in
     container w h middle <|
     collage areaW areaH
-      [ toForm (image areaW areaH "/assets/imgs/maps/forest.png")
+      [ toForm (image areaW areaH "/assets/imgs/maps/space.jpg")
       , toForm (image 22 28 src)
           |> move (x,y)
-      , toForm (Markdown.toElement "Arrows to move<br/>Shift to run")
-          |> move (70-areaW/2, 30-areaH/2)
       ]
 
 
